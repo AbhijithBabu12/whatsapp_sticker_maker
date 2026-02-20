@@ -8,15 +8,8 @@ import tempfile
 
 app = Flask(__name__)
 # Enable CORS - Update origins for production
-CORS(app, resources={
-    r"/api/*": {
-        "origins": [
-            "http://localhost:3000",
-            "https://*.netlify.app",
-            "https://*.netlify.com"
-        ]
-    }
-})
+
+CORS(app)
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
