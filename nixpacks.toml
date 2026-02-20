@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ["python310", "ffmpeg"]
-
-[phases.install]
-cmds = ["pip install -r backend/requirements.txt"]
-
-[start]
-cmd = "cd backend && python app.py"
