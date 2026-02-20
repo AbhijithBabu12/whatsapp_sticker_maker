@@ -16,4 +16,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8080
 
 # Start server (Railway compatible)
-CMD ["sh", "-c", "gunicorn -b 0.0.0.0:${PORT:-8080} app:app"]
+CMD gunicorn -b 0.0.0.0:${PORT:-8080} app:app
