@@ -217,7 +217,9 @@ def cleanup_file(file_id):
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
     print("🚀 Starting Flask server...")
     print("📁 Upload folder:", os.path.abspath(UPLOAD_FOLDER))
     print("📁 Output folder:", os.path.abspath(OUTPUT_FOLDER))
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    print("🌐 Port:", port)
+    app.run(debug=False, host='0.0.0.0', port=port)
