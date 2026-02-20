@@ -5,16 +5,15 @@ WORKDIR /app
 # Install ffmpeg
 RUN apt-get update && apt-get install -y ffmpeg && rm -rf /var/lib/apt/lists/*
 
-# Copy backend code
+# Copy backend
 COPY backend/ ./backend/
 
 WORKDIR /app/backend
 
-# Install dependencies
+# Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose Railway port
 EXPOSE 8080
 
-# Start server
-CMD ["gunicorn", "-b", "0.0.0.0:8080", "app:app"]
+# Start server (Railway compatible)
+CMD ["sh", "-c", "gunicorn -b 0.0.0.0:${PORT:-8080} app:app"]
