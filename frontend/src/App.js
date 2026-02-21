@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL =
+  "https://whatsappstickermaker-production.up.railway.app/api";
 
 function App() {
   const [file, setFile] = useState(null);
